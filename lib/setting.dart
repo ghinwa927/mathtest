@@ -43,21 +43,21 @@ class SettingsPage extends StatelessWidget {
             elevation: 1,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Inner padding
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), 
               child: DropdownButtonFormField<String>(
                 value: themeName,
                 decoration: InputDecoration(
-                  labelText: 'Select Theme', // Add a label
-                  border: InputBorder.none, // Remove default border for cleaner look inside Card
-                  contentPadding: EdgeInsets.zero, // Remove inner padding of input field
-                  isDense: true, // Make the input field slightly more compact
+                  labelText: 'Select Theme', 
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.zero, 
+                  isDense: true, 
                 ),
                 items: themes.keys
-                    .map((themeKey) => DropdownMenuItem<String>( // Renamed variable to themeKey
+                    .map((themeKey) => DropdownMenuItem<String>(
                   value: themeKey,
                   child: Text(
                     themeKey,
-                    style: textTheme.bodyMedium, // Use theme text style
+                    style: textTheme.bodyMedium, 
                   ),
                 ))
                     .toList(),
@@ -66,38 +66,37 @@ class SettingsPage extends StatelessWidget {
                     changeTheme(value);
                   }
                 },
-                icon: Icon(Icons.arrow_drop_down, color: colorScheme.onSurfaceVariant), // Styled icon
-                dropdownColor: colorScheme.surfaceContainerLowest, // Match dropdown background to theme
+                icon: Icon(Icons.arrow_drop_down, color: colorScheme.onSurfaceVariant), 
+                dropdownColor: colorScheme.surfaceContainerLowest, 
               ),
             ),
           ),
 
-          const SizedBox(height: 30), // Space between sections
-          Divider(color: colorScheme.outlineVariant), // Visual divider
+          const SizedBox(height: 30), 
+          Divider(color: colorScheme.outlineVariant), 
 
-          const SizedBox(height: 30), // Space after divider
+          const SizedBox(height: 30), 
 
-          // --- App Bar Color Selection Section ---
           Text(
             'App Bar Color',
-            style: textTheme.titleLarge?.copyWith( // Use titleLarge from theme
+            style: textTheme.titleLarge?.copyWith( 
               fontWeight: FontWeight.bold,
-              color: colorScheme.primary, // Use primary color for section titles
+              color: colorScheme.primary,
             ),
           ),
-          const SizedBox(height: 12), // More vertical space
-          Card( // Wrap dropdown in Card
+          const SizedBox(height: 12),
+          Card( 
             elevation: 1,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Inner padding
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), 
               child: DropdownButtonFormField<int>(
                 value: appBarColorIndex,
                 decoration: InputDecoration(
-                  labelText: 'Select App Bar Color', // Add a label
-                  border: InputBorder.none, // Remove default border
-                  contentPadding: EdgeInsets.zero, // Remove inner padding
-                  isDense: true, // Make the input field slightly more compact
+                  labelText: 'Select App Bar Color', 
+                  border: InputBorder.none, 
+                  contentPadding: EdgeInsets.zero, 
+                  isDense: true,
                 ),
                 items: appBarColors
                     .asMap()
@@ -107,18 +106,18 @@ class SettingsPage extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
-                        width: 24, // Slightly larger color swatch
+                        width: 24, 
                         height: 24,
-                        margin: const EdgeInsets.only(right: 12), // More space
-                        decoration: BoxDecoration( // Add subtle border to swatch
-                          color: entry.value, // <--- CORRECTED: Color is now inside BoxDecoration
+                        margin: const EdgeInsets.only(right: 12), 
+                        decoration: BoxDecoration( 
+                          color: entry.value, 
                           border: Border.all(color: Colors.black12),
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),
                       Text(
                         'Color ${entry.key + 1}',
-                        style: textTheme.bodyMedium, // Use theme text style
+                        style: textTheme.bodyMedium, 
                       ),
                     ],
                   ),
@@ -129,8 +128,8 @@ class SettingsPage extends StatelessWidget {
                     changeAppBarColor(value);
                   }
                 },
-                icon: Icon(Icons.arrow_drop_down, color: colorScheme.onSurfaceVariant), // Styled icon
-                dropdownColor: colorScheme.surfaceContainerLowest, // Match dropdown background
+                icon: Icon(Icons.arrow_drop_down, color: colorScheme.onSurfaceVariant), 
+                dropdownColor: colorScheme.surfaceContainerLowest, 
               ),
             ),
           ),
