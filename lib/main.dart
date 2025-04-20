@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'home_page.dart';
-import 'practice.dart'; // Import your PracticePage
-import 'test.dart';     // Import your TestPage
-import 'setting.dart'; // Ensure correct import
+import 'practice.dart'; 
+import 'test.dart';     
+import 'setting.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
